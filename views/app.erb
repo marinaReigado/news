@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -24,25 +24,36 @@
 
 <body>
 
-    <h1>Welcome to a place where you can find out the weather <em>anywhere</em> and also catch up with the news </h1>
-
     <div class="container mt-5">
       <h1>Weather</h1>
-      <label class="white">Location:</label>
-      <form action="/weather">
-        <input name="location">
-        <button type="submit" class="btn btn-success">Submit</submit>
-      </form>
+    <p class="white">
+    It is current: <%= @current_temperature %> degrees and <%= @conditions %>
+    </p>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    <p class="white">
+       <% for day in @forecast["daily"]["data"] %>
+       <p class="white">
+         A high temperature of <%= day["temperatureHigh"]%> and <%= day["summary"]%>
+        </p>
+       <% end %>
+    </p>   
+    
+    <a class="btn btn-primary" href="/news" role="button">Go to News</a>
 
     </div>
+  
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     </body>
 
 </html>
 
-
+ 
+ 
+ 
+ 
